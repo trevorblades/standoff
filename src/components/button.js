@@ -1,11 +1,11 @@
+import {lighten} from 'polished';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 import {
   FONT_FAMILY_MONOSPACE,
-  GRAY_DARKER,
-  GRAY_DARKEST,
+  GRAY_LIGHTER,
   PADDING_BASE,
   PADDING_SMALL
 } from '../variables';
@@ -16,20 +16,29 @@ const Wrapper = styled.button`
   font-family: ${FONT_FAMILY_MONOSPACE};
   color: white;
   text-transform: uppercase;
-  background: black;
-  cursor: pointer;
+  ${props =>
+    props.disabled
+      ? css`
+    background: ${GRAY_LIGHTER};
+  `
+      : css`
+    background: ${props.backgroundColor};
+    cursor: pointer;
+    &:hover {
+      background: ${lighten(0.1, props.backgroundColor)};
+    }
+    &:active {
+      background: ${lighten(0.2, props.backgroundColor)};
+    }
+  `}
   outline: none;
-  &:hover {
-    background: ${GRAY_DARKEST};
-  }
-  &:active {
-    background: ${GRAY_DARKER};
-  }
 `;
 
 const Button = props =>
   <Wrapper
+    backgroundColor={props.backgroundColor}
     className={props.className}
+    disabled={props.disabled}
     onClick={props.onClick}
     type={props.type}
   >
@@ -37,13 +46,16 @@ const Button = props =>
   </Wrapper>;
 
 Button.propTypes = {
+  backgroundColor: PropTypes.string,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   type: PropTypes.string
 };
 
 Button.defaultProps = {
+  backgroundColor: 'black',
   type: 'button'
 };
 

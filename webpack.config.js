@@ -27,6 +27,10 @@ const config = {
             loader: 'happypack/loader'
           }
         ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'babel-loader!react-svg-loader'
       }
     ]
   },
