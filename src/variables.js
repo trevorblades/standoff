@@ -13,5 +13,11 @@ export const GRAY_LIGHT = lighten(0.65, 'black');
 export const GRAY_LIGHTER = lighten(0.8, 'black');
 export const GRAY_LIGHTEST = lighten(0.9, 'black');
 
-export const PADDING_BASE = '18px';
+export const PADDING_SMALLEST = '4px';
+export const PADDING_SMALLER = '8px';
 export const PADDING_SMALL = '12px';
+export const PADDING_BASE = '18px';
+export const PADDING_LARGE = '24px';
+export const PADDING_LARGER = '36px';
+export const PADDING_LARGEST = '48px';
+export const PADDING_HUGE = '64px';

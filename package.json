@@ -33,6 +33,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "autobind-decorator": "^1.4.1",
     "polished": "^1.2.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",

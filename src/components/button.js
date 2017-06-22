@@ -28,10 +28,17 @@ const Wrapper = styled.button`
 `;
 
 const Button = props =>
-  <Wrapper onClick={props.onClick} type={props.type}>{props.children}</Wrapper>;
+  <Wrapper
+    className={props.className}
+    onClick={props.onClick}
+    type={props.type}
+  >
+    {props.children}
+  </Wrapper>;
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   type: PropTypes.string
 };
