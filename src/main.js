@@ -199,12 +199,12 @@ class Main extends Component {
   renderAmmo() {
     const bullets = [];
     for (let i = 0; i < MAX_BULLETS; i++) {
-      bullets.push(
-        <BulletIcon
-          fill={this.state.bulletsLoaded >= i + 1 ? 'black' : GRAY_LIGHTER}
-          key={i.toString()}
-        />
-      );
+      let fill = GRAY_LIGHTER;
+      if (this.state.bulletsLoaded >= i + 1) {
+        fill = i === MAX_BULLETS - 1 ? 'gold' : 'black';
+      }
+
+      bullets.push(<BulletIcon fill={fill} key={i.toString()} />);
     }
     return <Ammo>{bullets}</Ammo>;
   }
