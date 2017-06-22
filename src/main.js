@@ -107,17 +107,19 @@ const ACTIONS = {
   [FIRE]: 'Fire'
 };
 
+const getInitialState = () => ({
+  bulletsLoaded: 0,
+  healthRemaining: MAX_HEALTH,
+  playing: false,
+  round: 0,
+  selectedAction: COVER
+});
+
 @autobind
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      bulletsLoaded: 0,
-      healthRemaining: MAX_HEALTH - 1,
-      playing: false,
-      round: 0,
-      selectedAction: COVER
-    };
+    this.state = getInitialState();
   }
 
   componentWillMount() {
@@ -147,14 +149,13 @@ class Main extends Component {
 
   start() {
     this.interval = setInterval(this.readAction, ROUND_INTERVAL);
-    this.setState({
-      playing: true,
-      round: 0
-    });
+
+    const nextState = getInitialState();
+    nextState.playing = true;
+    this.setState(nextState);
   }
 
   readAction() {
-    console.log(this.state.selectedAction); // eslint-disable-line no-console
     if (this.state.round + 1 === MAX_ROUNDS) {
       return this.end();
     }
