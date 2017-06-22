@@ -1,0 +1,31 @@
+{
+  "name": "standoff",
+  "version": "0.0.0",
+  "description": "High stakes strategy game",
+  "main": "index.js",
+  "repository": "https://github.com/trevorblades/standoff.git",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "polished": "^1.2.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "styled-components": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "babel-plugin-styled-components": "^1.1.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.0.0",
+    "eslint-config-knoword": "^2.0.1",
+    "happypack": "^4.0.0-beta.1",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  }
+}
